@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<libraries>
+	<lib>
+		<name>test</name>
+		<mainClass>ben.Test</mainClass>
+		<jar>modules/test.jar</jar>
+		<command>test</command>
+	</lib>
+</libraries>
