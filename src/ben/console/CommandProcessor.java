@@ -20,6 +20,14 @@ public class CommandProcessor {
 		this.scanner = s;
 	}
 	
+	/**
+	 * Processes the command, finds the right library module for the command
+	 * and passes the arguements, getting response.
+	 * 
+	 * If response is 0, the command finished executing, else it requires more arguements
+	 * @param cmd		String	The command
+	 * @throws Exception
+	 */
 	public void process(String cmd) throws Exception {
 		ArrayList<String> arguements = new ArrayList<String>();
 		String[] args = cmd.split(" ");

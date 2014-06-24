@@ -22,6 +22,12 @@ import org.xml.sax.SAXException;
 import ben.console.Configuration;
 import ben.console.modules.ModuleLoader;
 
+/**
+ * Module reader
+ * Reading the values from the library XML files
+ * @author Ben
+ *
+ */
 public class ModuleReader {
 
 	private List<Module> modules = new ArrayList<Module>();

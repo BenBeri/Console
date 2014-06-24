@@ -1,5 +1,10 @@
 package ben.console.modules.read;
 
+/**
+ * Module - Storage module class
+ * @author Ben
+ *
+ */
 public class Module {
 
 	private String name;
