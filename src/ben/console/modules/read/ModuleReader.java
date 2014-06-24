@@ -2,6 +2,8 @@ package ben.console.modules.read;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.ArrayList;
@@ -18,6 +20,7 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import ben.console.Configuration;
+import ben.console.modules.ModuleLoader;
 
 public class ModuleReader {
 
@@ -35,18 +38,8 @@ public class ModuleReader {
 		if (directory.isDirectory()) {
 			File[] modules = directory.listFiles();
 			for (File module : modules) {
-				
 				Module b = this.initializeModuleObject(module);
 				this.modules.add(b);
-				System.out.println(b.getJar());
-				File h = new File(b.getJar());
-
-				URLClassLoader loader = new URLClassLoader(new URL[]{
-						new File(b.getJar()).toURI().toURL()
-				});
-				Runnable run = (Runnable) loader.loadClass(b.getMainClass()).newInstance();
-				run.run();
-				loader.close();
 			}
 		}
 		else {
@@ -79,8 +72,6 @@ public class ModuleReader {
 				mod.setCommand(this.getElementText("command"));
 			}
 		}
-		
-		System.out.print(mod.getName());
 		return mod;
 	}
 	
